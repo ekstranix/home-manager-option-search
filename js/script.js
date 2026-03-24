@@ -73,7 +73,7 @@ function parseMD(md, prevLinks) {
       if (t.match(/\./)) {
         token[5] = token[5].replace(/^\d+/gm, '');
       }
-      inner = parse(outdent(token[5].replace(/^\s*[>*+.-]/gm, '')));
+      inner = parseMD(outdent(token[5].replace(/^\s*[>*+.-]/gm, '')));
       if (t=='>') t = 'blockquote';
       else {
         t = t.match(/\./) ? 'ol' : 'ul';
@@ -96,7 +96,7 @@ function parseMD(md, prevLinks) {
     // Headings:
     else if (token[12] || token[14]) {
       t = 'h' + (token[14] ? token[14].length : (token[13]>'=' ? 1 : 2));
-      chunk = '<'+t+'>' + parse(token[12] || token[15], links) + '</'+t+'>';
+      chunk = '<'+t+'>' + parseMD(token[12] || token[15], links) + '</'+t+'>';
     }
     // `code`:
     else if (token[16]) {
@@ -257,7 +257,7 @@ var updateOptionsTable = function(options) {
 function parseDescription(text){
 
   text = text.replace(/<https(\s*([^>]*))/gi ,'<a href="https$1">&lt;https$1</a>');
-  text = text.replace(/\[\]\(#opt-(\s*([^)]*))/gi ,'<strong>$1</strong>').replace(/\)/gi,'');
+  text = text.replace(/\[\]\(#opt-([^)]*)\)/gi ,'<strong>$1</strong>');
   //[](#opt-wayland.windowManager.hyprland.plugins)
   text = text.replace(/\{var\}(\s*([^\n]*))/gi ,'<strong>$1</strong>').replace(/`/gi,'')
   text = text.replace(/:::\ \{\.note\}(\s*([^:::]*))/gi ,'<div class="alert alert-info" role="alert">$1</div>').replace(/:::/,'').replace(/\n/g, '<br />')
@@ -293,7 +293,7 @@ var expandOption = function(el){
   var elDesc = "<h5 style='margin:1em 0 0 0'>Description</h5><div>" + parseDescription(currentSet[el].description) + "</div>";
   var elType = "<h5 style='margin:1em 0 0 0'>Type</h5><div>" + currentSet[el].type + "</div>";
   //var elNote = ( currentSet[el].note == "" ? "": "<h5 style='margin:1em 0 0 0'>Note</h5><div>" + currentSet[el].note + "</div>");
-  var elDefault = "<h5 style='margin:1em 0 0 0'>Default</h5><div><pre style='margin-top:0.5em'>" + currentSet[el].default + "</pre></div>";
+  var elDefault = ( currentSet[el].default == "" ? "" : "<h5 style='margin:1em 0 0 0'>Default</h5><div><pre style='margin-top:0.5em'>" + currentSet[el].default + "</pre></div>");
   var elExample = ( currentSet[el].example == "" ? "" : "<h5 style='margin:1em 0 0 0'>Example</h5><div><pre style='margin-top:0.5em'>" + currentSet[el].example + "</pre></div>");
 
   //var declared_by_str = currentSet[el].declarations[0].name;
