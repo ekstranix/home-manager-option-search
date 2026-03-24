@@ -14,6 +14,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Update theme to latest
+        run: git submodule update --remote themes/extranix-options-search
+
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
@@ -27,7 +30,7 @@ jobs:
         env:
           HM_RELEASE: release-25.11
         run: ./scripts/build_and_parse_hm_options.rb
-        
+
       - name: extract-options-release-25.05 (old-stable)
         env:
           HM_RELEASE: release-25.05
