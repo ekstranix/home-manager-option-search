@@ -4,12 +4,13 @@ title: Home Manager - Option Search
 theme: extranix-options-search
 
 params:
-
-  release_current_stable: release-25.11
+  release_current_stable: release-26.05
   releases:
     - name: unstable
       value: master
-    - name: 25.11 (stable)
+    - name: 26.05 (stable)
+      value: release-26.05
+    - name: 25.11
       value: release-25.11
     - name: 25.05
       value: release-25.05
@@ -38,7 +39,7 @@ params:
     <a href="https://nix-community.github.io/home-manager/">Home Manager Documentation</a>
 
   footer_copyright_line: |
-    Made with ❤️ by <a href="https://github.com/mipmip">Pim Snel</a> - © 2022-2024
+    Made with ❤️ by <a href="https://github.com/mipmip">Pim Snel</a> - © 2022-2026
 
   logo: images/home-manager-option-search2.png
 
