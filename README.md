@@ -20,11 +20,13 @@ Edit `config.yaml`, and update the following...
 
 ```yaml
 params:
-  release_current_stable: release-25.05
+  release_current_stable: release-26.05
   releases:
     - name: unstable
       value: master
-    - name: 25.11 (stable)
+    - name: 26.05 (stable)
+      value: release-26.05
+    - name: 25.11
       value: release-25.11
     - name: 25.05
       value: release-25.05

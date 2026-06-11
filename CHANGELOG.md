@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Version 1.6.1
+
+- add 26.05 as latest stable version
+
 ## Version 1.6
 
 - fix behvaiour of enter key (thanks to github.com/ian-h-chamberlain)
