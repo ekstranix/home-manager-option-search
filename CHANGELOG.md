@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Added
+
+- Browser AI agents can search and look up Home Manager options through WebMCP
+  tools, and `?option=<name>` links open a single option.
+
 ## Version 1.6
 
 - fix behvaiour of enter key (thanks to github.com/ian-h-chamberlain)

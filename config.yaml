@@ -30,6 +30,7 @@ params:
   custom_head_scripts: |
     <script async src="https://umami.pimsnel.com/script.js" data-website-id="8e970d59-b517-4ba6-9b92-207e7dbdb4b1"></script>
     <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+    <script defer src="js/webmcp.js"></script>
 
   custom_header_tags: <div id="eadiv" data-ea-publisher="extranixcom" data-ea-type="text"></div>
 
